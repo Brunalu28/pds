@@ -154,8 +154,8 @@ A saída em `n` depende apenas de `y[n-1]` (passado) e `x[n]` (presente), **nunc
 
 | Propriedade | Resultado | Justificativa |
 |---|---|---|
-| **Estabilidade BIBO** | ✅ Estável | `Σ|h[n]| = 5 < ∞` (polo em z=0.8 dentro do círculo unitário) |
-| **Causalidade** | ✅ Causal | `h[n] = 0` para `n < 0`; saída depende apenas de passado e presente |
+| **Estabilidade BIBO** | Estável | `Σ|h[n]| = 5 < ∞` (polo em z=0.8 dentro do círculo unitário) |
+| **Causalidade** | Causal | `h[n] = 0` para `n < 0`; saída depende apenas de passado e presente |
 
 ---
 
