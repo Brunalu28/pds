@@ -1,6 +1,6 @@
 # Processamento Digital de Sinais
 **Curso:** Engenharia da Computação / Telemática - IFPB
-**Tema:** Modelagem de Sinais, Sistemas Discretos, Convolução e Sistemas LTI
+**Tema:** Modelagem de Sinais, Sistemas Discretos, Convolução, Sistemas LTI e Análise Espectral
 
 ---
 
@@ -52,3 +52,28 @@ Os conceitos desenvolvidos foram aplicados em:
 
 **Resposta resumida (ver documentos completos em `/teoria/estudo2`):**
 A saída de um sistema LTI é completamente determinada pela convolução $y[n] = x[n] * h[n]$, onde $h[n]$ é a resposta ao impulso — suficiente para caracterizar o sistema inteiramente. A causalidade exige $h[n] = 0$ para $n < 0$, garantindo que a saída dependa apenas de entradas presentes e passadas. A estabilidade BIBO é garantida quando $\sum |h[n]| < \infty$. Em aplicações práticas, como a suavização de leituras de sensores, o filtro de média móvel exemplifica esses conceitos ao atuar como passa-baixas, atenuando ruídos de alta frequência e preservando a tendência geral do sinal.
+
+---
+
+## Estudo Dirigido 3 – Análise no Domínio da Frequência
+
+### Objetivos
+Introdução à análise espectral de sinais discretos, compreendendo como a informação de um sinal se distribui no domínio da frequência por meio da DTFT, DFT, FFT e Transformada-Z, além da investigação dos efeitos de aliasing e janelamento.
+
+### Estrutura
+* `/teoria/estudo3`: Resumo teórico fundamentado cobrindo DTFT, DFT, FFT, Transformada-Z, aliasing e janelamento, com interpretações físicas e exemplos práticos.
+* `/simulações/estudo3`: Jupyter Notebook com 10 simulações computacionais — geração e análise espectral de senoides, detecção de aliasing, comparação de janelas, análise com ruído, equivalência DFT/FFT, análise de estabilidade pelo plano-Z, resolução espectral, identificação de harmônicos e análise de vibração mecânica simulada.
+* `/resultados/estudo3`: Discussão técnica dos resultados de cada simulação e resposta ao problema norteador da etapa.
+
+### Aplicações Tecnológicas Abordadas
+- Análise espectral de vibração em máquinas rotativas;
+- Diagnóstico de falhas mecânicas por assinaturas de harmônicos;
+- Processamento de sinais de áudio e telecomunicações;
+- Análise espectral de sinais adquiridos por sistemas embarcados;
+- Manutenção preditiva industrial baseada em análise de frequência.
+
+### Resolução do Problema Norteador
+**Como identificar, a partir do conteúdo espectral de um sinal real, informações relevantes sobre o comportamento dinâmico de um sistema físico e quais limitações práticas devem ser consideradas?**
+
+**Resposta resumida (ver documentos completos em `/teoria/estudo3` e `/resultados/estudo3`):**
+A FFT permite decompor qualquer sinal discreto em suas componentes de frequência, revelando frequências dominantes, harmônicos e ruídos inacessíveis no domínio do tempo. Em sistemas mecânicos, cada pico espectral tem significado físico direto: a fundamental indica a velocidade de operação e os harmônicos caracterizam tipos específicos de defeito. As limitações práticas fundamentais são o **aliasing** (exige $f_s \geq 2f_{max}$ e filtro antialiasing), o **vazamento espectral** (controlado pela escolha da janela) e a **resolução espectral** ($\Delta f = f_s/N$). A combinação adequada desses parâmetros determina a qualidade da análise espectral em aplicações reais de engenharia.
