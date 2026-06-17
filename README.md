@@ -77,3 +77,31 @@ Introdução à análise espectral de sinais discretos, compreendendo como a inf
 
 **Resposta resumida (ver documentos completos em `/teoria/estudo3` e `/resultados/estudo3`):**
 A FFT permite decompor qualquer sinal discreto em suas componentes de frequência, revelando frequências dominantes, harmônicos e ruídos inacessíveis no domínio do tempo. Em sistemas mecânicos, cada pico espectral tem significado físico direto: a fundamental indica a velocidade de operação e os harmônicos caracterizam tipos específicos de defeito. As limitações práticas fundamentais são o **aliasing** (exige $f_s \geq 2f_{max}$ e filtro antialiasing), o **vazamento espectral** (controlado pela escolha da janela) e a **resolução espectral** ($\Delta f = f_s/N$). A combinação adequada desses parâmetros determina a qualidade da análise espectral em aplicações reais de engenharia.
+
+---
+
+## Estudo Dirigido 4 – Filtros Digitais
+
+### Objetivos
+Introdução aos fundamentos do projeto e análise de filtros digitais, permitindo compreender como sistemas discretos podem modificar seletivamente o conteúdo espectral de sinais. Busca-se diferenciar arquiteturas FIR e IIR, interpretar respostas em frequência/fase e aplicar técnicas de filtragem em sinais reais de engenharia.
+
+### Estrutura
+* `/teoria/estudo4`: Resumo teórico fundamentado (baseado em Oppenheim e Proakis). Aborda a distinção entre filtros FIR e IIR, análise de estabilidade (polos e zeros), fase linear, atraso de grupo e resposta em frequência.
+* `/simulações/estudo4`: Jupyter Notebook contendo as 10 simulações práticas solicitadas: projeto de filtros, redução de ruído, análise de estabilidade, resposta ao impulso e filtragem de sinais de sensores.
+* `/resultados/estudo4`: Gráficos gerados (respostas em frequência, diagramas de polos/zeros, comparação temporal), discussão técnica e validação dos modelos.
+
+### Aplicações Tecnológicas Abordadas
+Os conceitos desenvolvidos foram aplicados em:
+- Filtragem de ruído em sensores industriais e agrícolas;
+- Processamento de sinais de áudio e telecomunicações;
+- Pré-processamento de dados para sistemas embarcados e *TinyML*;
+- Remoção de interferências indesejadas em sistemas de instrumentação.
+
+### Resolução do Problema Norteador
+**Como projetar e validar filtros digitais capazes de reduzir os ruídos presentes nos sinais sem comprometer as informações relevantes necessárias para a tomada de decisão?**
+
+**Resposta resumida (ver documentos completos em `/teoria/estudo4` e `/resultados/estudo4`):**
+O projeto de filtros digitais para sensores exige um compromisso entre a seletividade espectral e os recursos computacionais disponíveis.  Filtros **FIR** são preferíveis quando a **fase linear** é um requisito crítico para a preservação da forma da onda, garantindo que não ocorra distorção temporal entre componentes de frequências diferentes. Por outro lado, filtros **IIR** são a escolha eficiente para sistemas embarcados com restrição de memória e energia, pois alcançam características de corte similares aos FIR com ordens significativamente menores. A validação do filtro deve sempre contemplar a análise de estabilidade (polos dentro do círculo unitário no plano-Z) e a verificação do atraso de grupo, assegurando que o sinal filtrado mantenha a integridade da informação essencial para a aplicação específica, seja ela uma média lenta de umidade de solo ou um sinal dinâmico de vibração mecânica.
+
+---
+*Desenvolvido como parte das atividades da disciplina de Processamento Digital de Sinais - IFPB 2026.*
